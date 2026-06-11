@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una Invitación Especial</title>
+    <!-- Tipografías elegantes de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #fcf9f5;
+            --text-color: #2c2c2c;
+            --accent-color: #b8926a;
+            /* Dorado/marrón elegante */
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid rgba(184, 146, 106, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        /* Encabezado */
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        /* Grilla de Menús */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card {
+            background: var(--card-bg);
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent-color);
+        }
+
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .menu-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Botones */
+        .btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Pantalla de éxito (Oculta al principio) */
+        .success-screen {
+            display: none;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .success-screen h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.3rem;
+            margin-bottom: 20px;
+        }
+
+        .success-screen p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Adaptación para pantallas chicas */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="main-container">
+        <!-- PANTALLA PRINCIPAL: INVITACIÓN -->
+        <div id="invitation-screen">
+            <header>
+                <h1>Una reserva exclusiva, solo para vos.</h1>
+                <p>Este fin de semana el mundo se frena. El chef de la casa preparó una carta especial para que elijas
+                    cómo querés que te cocine. ¿Qué menú te gusta más?</p>
+            </header>
+
+            <div class="menu-grid">
+                <!-- Opción 1 -->
+                <div class="menu-card">
+                    <div>
+                        <div class="icon">🍔</div>
+                        <h3>Hamburguesas Gourmet</h3>
+                        <p>Medallones caseros, mucho queso derretido, aderezos especiales y pan caserito recién
+                            sacado del horno.</p>
+                    </div>
+                    <button class="btn" onclick="seleccionarMenu('Hamburguesas Gourmet 🍔')">¡Quiero este!</button>
+                </div>
+
+                <!-- Opción 2 -->
+                <div class="menu-card">
+                    <div>
+                        <div class="icon">🍝</div>
+                        <h3>Noche de Pastas</h3>
+                        <p>Sorrentinos bien rellenos, una buena salsa a elección, vinito, música de fondo y luz de vela.
+                        </p>
+                    </div>
+                    <button class="btn" onclick="seleccionarMenu('Noche de Pastas (Sorrentinos) 🍝')">¡Quiero
+                        este!</button>
+                </div>
+
+                <!-- Opción 3 -->
+                <div class="menu-card">
+                    <div>
+                        <div class="icon">🥩</div>
+                        <h3>El Clásico</h3>
+                        <p>Un asadito hecho con tiempo, fuego lento, muy buena compañía y charla sin ningún apuro.</p>
+                    </div>
+                    <button class="btn" onclick="seleccionarMenu('un Asadito Clásico 🥩')">¡Quiero este!</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PANTALLA SECUNDARIA: CONFIRMACIÓN -->
+        <div id="success-screen" class="success-screen">
+            <h2>¡Excelente elección! ❤️</h2>
+            <p>Su reserva ha sido procesada con éxito. El chef ya está buscando los ingredientes y preparando todo para
+                nuestro finde.<br><br>
+                Tocá el botón de abajo para enviar el código de confirmación por WhatsApp.</p>
+
+            <a href="#" id="whatsapp-link" target="_blank" class="btn-whatsapp">
+                Confirmar reserva por WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // CONFIGURACIÓN: Cambiá este número por el tuyo. 
+        // Importante: Poné el código de país y de área sin el "+" ni el "15". 
+        // Ejemplo para Argentina: 549 + característica sin 0 + número sin 15 (Ej: 549261XXXXXXX)
+        const TU_TELEFONO = "5492664369529";
+
+        function seleccionarMenu(nombreMenu) {
+            const invitationScreen = document.getElementById('invitation-screen');
+            const successScreen = document.getElementById('success-screen');
+            const whatsappLink = document.getElementById('whatsapp-link');
+
+            // Texto que te va a llegar a tu WhatsApp
+            const mensaje = `¡Hola amor! Ya hice mi reserva web. Elegí la opción de: ${nombreMenu}. ¡Te amo! ✨❤️`;
+
+            // Codificar el texto para que la URL sea válida
+            const mensajeCodificado = encodeURIComponent(mensaje);
+
+            // Creamos el link final de WhatsApp
+            const urlWhatsapp = `https://wa.me/${TU_TELEFONO}?text=${mensajeCodificado}`;
+
+            // Asignamos el link al botón
+            whatsappLink.href = urlWhatsapp;
+
+            // Ocultamos las opciones y mostramos la confirmación con un efecto visual simple
+            invitationScreen.style.display = 'none';
+            successScreen.style.display = 'block';
+        }
+    </script>
+</body>
+
+</html>
